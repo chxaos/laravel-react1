@@ -8,7 +8,7 @@ import TButton from './core/TButton';
 
 export default function SurveyListItem({ survey, onDeleteClick }) {
   return (
-    <div className="flex flex-col py-4 px-6 shadow-md bg-white hover:shadow-2xl hover:shadow-teal-900 hover:ring-1 hover:ring-indigo-950/50 hover:scale-105  transition-transform h-[470px]">
+    <div className="flex flex-col py-4 px-6 shadow-md bg-white hover:shadow-xl hover:shadow-teal-900 hover:ring-1 hover:ring-indigo-950/50 hover:scale-105  transition-transform h-[470px]">
       <img
         src={survey.image_url}
         alt={survey.title}

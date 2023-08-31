@@ -6,8 +6,8 @@ import {
   UserIcon,
   XMarkIcon
 } from '@heroicons/react/24/outline';
-import { NavLink, Outlet } from 'react-router-dom';
-import { userStateContext } from '../context/ContextProvider';
+import { NavLink, Navigate, Outlet } from 'react-router-dom';
+import { useStateContext } from '../context/ContextProvider';
 
 const navigation = [
   { name: 'Dashboard', to: '/' },
@@ -19,7 +19,11 @@ function classNames(...classes) {
 }
 
 export default function DefaultLayout() {
-  const { currentUser, userToken } = userStateContext();
+  const { currentUser, userToken } = useStateContext();
+
+  if (!userToken) {
+    return <Navigate to="login" />
+  }
 
   const logout = (ev) => {
     ev.preventDefault();

@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { createClient } from 'pexels';
 import axios from 'axios';
 
 const StateContext = createContext({
@@ -14,11 +13,11 @@ const tmpSurveys = [
   {
     id: 1,
     image_url: '',
-    title: 'TheCodeholic YouTube channel',
-    slug: 'thecodeholic-youtube-channel',
+    title: 'MVC Architecture',
+    slug: 'mvc',
     status: true,
     description:
-      'My name is Zura.<br>I am Web Developer with 9+ years of experience, free educational content creator, CTO, Lecturer and father of two wonderful daughters.<br><br>The purpose of the channel is to share my several years of experience with beginner developers.<br>Teach them what I know and make my experience as a lesson for others.',
+      'MVC is an architectural pattern consisting of three parts: Model, View, Controller. Model: Handles data logic. View: It displays the information from the model to the user. Controller: It controls the data flow into a model object and updates the view whenever data changes. -It is invented by Trygve Reenskau',
     created_at: '2022-01-07 13:23:41',
     updated_at: '2022-01-18 16:34:19',
     expire_date: '2022-01-23',

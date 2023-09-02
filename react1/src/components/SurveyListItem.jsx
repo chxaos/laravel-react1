@@ -12,7 +12,7 @@ export default function SurveyListItem({ survey, onDeleteClick }) {
       <img
         src={survey.image_url}
         alt={survey.title}
-        className="w-full h-48 object-cover"
+        className="w-full h-48 object-cover hover:scale-110 transition-transform"
       />
       <h4 className="mt-4 text-lg font-bold">{survey.title}</h4>
       <div

@@ -145,14 +145,14 @@ const tmpSurveys = [
       {
         id: 22,
         type: 'textarea',
-        question: 'What do you think about TheCodeholic channel?',
+        question: 'What do you think about MVC Architecture?',
         description: 'Write your honest opinion. Everything is anonymous.',
         data: []
       },
       {
         id: 23,
         type: 'text',
-        question: 'Which channel is your favorite one?',
+        question: 'Which framework is your favorite one?',
         description: null,
         data: []
       }
@@ -189,7 +189,7 @@ const tmpSurveys = [
 const apiUrl1 =
   'https://api.pexels.com/v1/search/?page=1&per_page=' +
   tmpSurveys.length +
-  '&query=Nature';
+  '&query=Home+Technology';
 const apiUrl2 =
   'https://api.pexels.com/v1/search/?page=1&per_page=1&query=People';
 const apiKey = 'mRXROouBqrwkQwu30aPdiB4t2gsfCPN6Osfqqzj4kZDFvzQfZbvzMQOp';
@@ -202,6 +202,19 @@ async function getImages() {
       }
     });
 
+    // Extract rate limit headers
+    const ratelimitLimit = parseInt(response.headers['x-ratelimit-limit'], 10);
+    const ratelimitRemaining = parseInt(
+      response.headers['x-ratelimit-remaining'],
+      10
+    );
+    const ratelimitReset = parseInt(response.headers['x-ratelimit-reset'], 10);
+
+    // Log rate limit information
+    // console.log(`Rate Limit: ${ratelimitLimit}`);
+    // console.log(`Remaining Requests: ${ratelimitRemaining}`);
+    // console.log(`Reset Timestamp: ${ratelimitReset}`);
+
     return response.data.photos;
   } catch (error) {
     console.log(error);
@@ -210,10 +223,10 @@ async function getImages() {
 
 async function loadImagesForSurveys() {
   const images = await getImages();
-
+  console.log(images);
   return images.map((image, index) => ({
     ...tmpSurveys[index],
-    image_url: image.src.landscape
+    image_url: image.src.large
   }));
 }
 

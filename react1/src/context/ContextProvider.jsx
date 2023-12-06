@@ -223,7 +223,7 @@ async function getImages() {
 
 async function loadImagesForSurveys() {
   const images = await getImages();
-  console.log(images);
+
   return images.map((image, index) => ({
     ...tmpSurveys[index],
     image_url: image.src.large

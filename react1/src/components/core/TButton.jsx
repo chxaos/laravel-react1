@@ -7,6 +7,7 @@ export default function TButton({
   href = '',
   link = false,
   target = '_blank',
+  onClick = () => {},
   children
 }) {
   let classes = [
@@ -90,7 +91,9 @@ export default function TButton({
         </Link>
       )}
       {!to && !href && (
-        <button className={classes.join(' ')}>{children}</button>
+        <button onClick={onClick} className={classes.join(' ')}>
+          {children}
+        </button>
       )}
     </>
   );
